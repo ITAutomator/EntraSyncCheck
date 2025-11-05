@@ -1,6 +1,6 @@
 # EntraSyncCheck.ps1  
 
-<img src=EntraSyncCheck.png alt="screenshot" width="400"/>  
+<img src=https://raw.githubusercontent.com/ITAutomator/Assets/main/EntraSyncCheck/EntraSyncCheck.png alt="screenshot" width="400"/>  
 
 Run this on the *Entra Connect* server as Administrator.  
 
