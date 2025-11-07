@@ -65,6 +65,7 @@ function MonitorRunningSync {
     $checking_Statuslast = ""
     $minSecs = 5
     Write-Host "Monitoring sync status [for up to $($minSecs)s of settled status]" -ForegroundColor Cyan
+    Write-Host "Get-ADSyncConnectorRunStatus" -ForegroundColor Blue
     $startTime = Get-Date # reset start timer
     $keeplooping = $true
     do {
@@ -133,6 +134,7 @@ while ($true) {
     switch -Regex ($choice.Trim()) {
         '^[dD]$' {
             Write-Host "Starting DELTA sync..." -ForegroundColor Yellow
+            Write-Host "Start-ADSyncSyncCycle -PolicyType Delta" -ForegroundColor Blue
             try {
                 Start-ADSyncSyncCycle -PolicyType Delta | Out-Null
                 MonitorRunningSync
@@ -143,6 +145,7 @@ while ($true) {
         }
         '^[fF]$' {
             Write-Host "Starting FULL sync..." -ForegroundColor Yellow
+            Write-Host "Start-ADSyncSyncCycle -PolicyType Initial" -ForegroundColor Blue
             try {
                 Start-ADSyncSyncCycle -PolicyType Initial | Out-Null
                 MonitorRunningSync
